@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Welcome!{% endblock %}</title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/b0240f81b7.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|Tomorrow&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-sm navbar-light bg-light mb-4">
+    <a class="navbar-brand" href="/"><i class="fas fa-theater-masks"></i> Big E</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- mr-auto: maximum margin right to make next sibling "float" right -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Events
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/">All Events</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/major%20events">Major Events</a>
+            <a class="dropdown-item" href="/concerts">Concerts</a>
+            <a class="dropdown-item" href="/theater">Theater</a>
+            <a class="dropdown-item" href="/exhibitions">Exhibitions</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <a class="nav-link text-secondary" href=/admin/create> <i class="fas fa-plus"></i> Create </a> <a class="nav-link text-secondary" href=/admin> <i class="fas fa-wrench"></i> Admin</a>
+      </form>
+    </div>
+  </nav>
+  <!-- navbar-end -->
+  <!-- CONTENT -->
+  {% block body %}{% endblock %}
+  <!-- CONTENT-END -->
+  <!-- footer -->
+  <footer class="mt-4">
+    <div class="bottomnav p-4">
+      <a href="/">Home</a> |
+      <a href="/about">About</a>
+    </div>
+    <h5 class="pt-2 pb-5 text-center">&#0169; David Riediger / CodeFactory</h5>
+  </footer>
+  <!-- footer-end -->
+  <!-- scroll button -->
+  <div id='scrollBtn'><span>^</span></div>
+  <script src="{{ asset('js/scrollbtn.js') }}"></script>
+</body>
+
+</html>

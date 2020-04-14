@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<div class="container">
+  <h3 class="text-center my-3"> {{ categoryMsg }} </h3>
+  <div class="row">
+    {% for event in events %}
+    <div class='col-12 col-md-6 col-lg-4 col-xl-3 my-4'>
+      <div class='card mx-auto h-100' style='width:95%;'>
+        <img src='{{ event.image }}' class='card-img-top' alt='image'>
+        <div class='card-body'>
+          <h5 class='card-title vienna'>{{ event.title }}</h5>
+          <h6 class=''>{{ event.dueDate|date('F j, Y, g:i a') }}</h6>
+        </div>
+        <ul class='list-group list-group-flush'>
+          <li class='list-group-item'><h6 class=''>{{ event.location }}</h6>
+          <p>{{ event.address}}</p></li>
+          <li class='list-group-item'><span class="italic">{{ event.description|striptags|slice(0, 101)}}... </span><a href="/details/{{ event.id }}">read more</a></li>
+        </ul>
+        <div class='card-body'>
+          <a href='{{ event.www }}' class='card-link'><i class='fas fa-globe'></i> Visit</a> | Tickets available: {{ event.capacity }}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container detailpage">
+  <div class="description-container">
+    <img src="{{ event.image }}" alt="eventimage" class="float-right bigimage m-1">
+    <h3 class="page-header vienna pb-3">{{event.title}}</h3>
+    <h6>{{event.dueDate|date('F j, Y, g:i a')}}</h6>
+    <p>({{ event.eventType }})</p>
+    <p>{{event.description}}</p>
+  </div>
+  <hr>
+  <h5 class="vienna">{{event.location}}</h5>
+  <p> 
+  	{{ event.address}}
+  	<br><small>Tickets left: {{ event.capacity }}</small>
+  </p>
+  
+  <ul>
+    <li><i class="fas fa-phone pr-1"></i> {{ event.phone }}</li>
+    <li><i class="far fa-envelope pr-2"></i> <a href="mailto:{{ event.email }}">{{ event.email }}</a></li>
+    <li><i class="fas fa-globe pr-2"></i> <a href="{{ event.www }}">visit site</a></li>
+  </ul>
+  <a href="/"><i class="fas fa-arrow-left"></i> Back to Events</a>
+</div>
+{% endblock %}
